@@ -1,0 +1,230 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e;
+  color: #e7e7de;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%; /* Ajusta esto según necesites */
+  height: 100vh; /* Ajusta esto para tomar toda la altura de la ventana, o ajusta según necesites */
+  align-items: stretch; /* Asegura que los hijos del contenedor se estiren para llenar el contenedor */
+}
+
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2%;
+
+}
+
+.right-panel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.progress-bar {
+  width: 100%;
+  min-height: 0px;
+  height: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #fdd835, /* Amarillo dorado oscuro */
+    #fdd835 10px,
+    #fff176, /* Amarillo claro */
+    #fff176 20px
+  );
+  position: absolute;
+  bottom: 0;
+  transition: height 0.5s ease;
+  border-radius: 20px;
+}
+
+.progress-bar-container {
+  position: relative;  /* Contexto de posicionamiento para elementos internos */
+  width: 100px;
+  height: 200px;
+  background-color: #0f3460;
+  border-radius: 20px;
+  overflow: hidden;  /* Esto evitará que el patrón se muestre fuera de la barra */
+}
+
+.marks-container {
+  position: absolute;
+  left: 120px;  /* Ajusta esta distancia para posicionar las marcas a la derecha de la barra */
+  top: 0;
+  height: 200px; /* Igual a la altura del contenedor de la barra para alineación vertical */
+}
+
+.gift-mark {
+  position: absolute;
+  left: 0; /* Alineación izquierda dentro de su contenedor */
+  transform: translateY(-50%); /* Ajuste vertical para centrar con respecto a la posición */
+  color: white; /* Asegúrate de que el color sea visible contra el fondo */
+}
+
+
+.team{
+  margin-top: 5%;
+}
+
+.team-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.team-label {
+  font-size: 16px;
+  color: white;
+  width: 100px; /* Asegura suficiente espacio para el texto */
+}
+
+.team-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+  position: relative; /* Necesario para posicionar el porcentaje */
+}
+
+#team1-bar {
+  background: repeating-linear-gradient(
+    45deg,
+    #c2185b, /* Rosa oscuro más intenso */
+    #c2185b 10px,
+    #e91e63, /* Rosa claro para un buen contraste */
+    #e91e63 20px
+  );
+}
+
+#team2-bar {
+  background: repeating-linear-gradient(
+    45deg,
+    #6a1b9a, /* Morado oscuro más intenso */
+    #6a1b9a 10px,
+    #9c27b0, /* Morado más claro para contraste */
+    #9c27b0 20px
+  );
+}
+
+.sales-number {
+  position: absolute;
+  right: 5px; /* Alinea el número a la derecha dentro de la barra */
+  color: rgb(255, 0, 0); /* Asegúrate de que el color contraste con el fondo */
+  line-height: 20px; /* Centra verticalmente el texto dentro de la barra */
+}
+
+.team-bar-container {
+  position: relative;
+  width: 100%;
+  height: 30px; /* Más espacio para mejorar la legibilidad */
+  background-color: #ddd; /* Color de fondo para la parte no completada */
+  margin-top: 5px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.input-container div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+input[type="number"] {
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.carousel {
+  width: 100%; /* Toma todo el ancho del panel derecho */
+  flex-grow: 1; /* Asegura que tome toda la altura disponible */
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel img {
+  width: 100%; /* Toma todo el ancho del carrusel */
+  height: 100%; /* Toma toda la altura del carrusel */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin perder proporciones, puedes cambiar a 'contain' si no quieres que se recorte */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel img:first-child {
+  display: block;
+}
+
+.percentage {
+  position: absolute;
+  right: 10px; /* Coloca el porcentaje cerca del borde derecho */
+  top: 50%;
+  transform: translateY(-50%); /* Centra el texto verticalmente */
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 2px 2px rgb(0, 0, 0)
+}
+
+
+@media (max-width: 768px) {
+  body {
+      flex-direction: column; /* Cambia la disposición a vertical en pantallas pequeñas */
+  }
+
+  .container {
+      flex-direction: column;
+      width: 100%; /* Aprovecha todo el ancho disponible */
+  }
+
+  .left-panel, .right-panel {
+      width: 100%; /* Estira los paneles para que ocupen todo el ancho */
+      padding: 10px; /* Ajusta el padding para mejor visualización */
+      align-items: center; /* Centra los elementos horizontalmente */
+  }
+
+  .team-bar-container, .progress-bar-container {
+      width: 100%; /* Asegura que las barras de progreso ocupen todo el ancho */
+  }
+
+  .team-bar, .progress-bar {
+      max-width: 100%; /* Previene que las barras de progreso se desborden */
+  }
+
+  .input-container, .team-section {
+      flex-direction: column; /* Alinea los elementos verticalmente para mejor acceso */
+  }
+
+  .input-container input, .input-container label {
+      width: 100%; /* Aumenta el ancho de los inputs y etiquetas */
+      margin-bottom: 5px; /* Añade un espacio entre los inputs */
+  }
+}
+
+@media (max-width: 480px) {
+  .team-label, .percentage {
+      font-size: 12px; /* Reduce el tamaño del texto para evitar desbordamiento */
+  }
+}
